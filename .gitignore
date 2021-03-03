@@ -14,7 +14,7 @@ promote_to_qa.sh
 # .tfstate files
 *.tfstate
 *.tfstate.*
-*.tfvars*
+
 
 *.out*
 
