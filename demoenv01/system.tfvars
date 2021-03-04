@@ -27,9 +27,9 @@ admin_is_compute_private                      = true
 
 
 ##### ADMIN COMPUTE ISCSI DISKS VARIABLES #####
-
+admin_disk_ssh_private_key                      = "./ssh_keys/auto_ssh_id_rsa"
 admin_disk_amount_of_disks                      = 1
-admin_disk_disk_size_in_gb                      = "50"
+admin_disk_disk_size_in_gb                      = "60"
 admin_disk_iscsi_disk_instance_compartment_name = "OCI-LAB-04"
 admin_disk_volume_display_name                  = "disk_admin"
 admin_disk_backup_policy_level                  = "bronze"
@@ -47,17 +47,16 @@ managed_bkp_policy_boot_volume                  = "gold"
 managed_linux_compute_instance_compartment_name = "OCI-LAB-04"
 managed_linux_compute_network_compartment_name  = "OCI-LAB-04"
 managed_vcn_display_name                        = "vcn_oci_iac"
-managed_num_instances                           = 1
+managed_num_instances                           = 2
 managed_compute_display_name_base               = "managed"
 managed_instance_image_ocid                     = "ocid1.image.oc1.iad.aaaaaaaaqdc7jslbtue7abhwvxaq3ihvazfvihhs2rwk2mvciv36v7ux5sda" #Oracle-Linux-7.9-2021.01.12-0
 managed_instance_shape                          = "VM.Standard2.1"
 managed_is_compute_private                      = true
 
 ##### MANAGED COMPUTE ISCSI DISKS VARIABLES #####
-
+managed_disk_ssh_private_key                      = "./ssh_keys/auto_ssh_id_rsa"
 managed_disk_amount_of_disks                      = 1
-managed_disk_disk_size_in_gb                      = "50"
+managed_disk_disk_size_in_gb                      = "70"
 managed_disk_iscsi_disk_instance_compartment_name = "OCI-LAB-04"
 managed_disk_volume_display_name                  = "disk_managed"
 managed_disk_backup_policy_level                  = "gold"
-
