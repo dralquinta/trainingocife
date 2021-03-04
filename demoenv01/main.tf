@@ -33,9 +33,9 @@ module "admin_compute" {
 }
 
 module "admin_iscsi_disks" {
-  depends_on = [ module.admin_compute ]
-  source = "git::https://github.com/dralquinta/trainingicscidisk.git?ref=v1.0"
-  count  = length(module.admin_compute.instance.*.id)
+  depends_on = [module.admin_compute]
+  source     = "git::https://github.com/dralquinta/trainingicscidisk.git?ref=DEV_Disk_Mounting"
+  count      = length(module.admin_compute.instance.*.id)
   ######################################## COMMON VARIABLES ######################################
   region           = var.region
   user_ocid        = var.user_ocid
@@ -44,6 +44,8 @@ module "admin_iscsi_disks" {
   private_key_path = var.private_key_path
   ######################################## COMMON VARIABLES ######################################
   ######################################## ARTIFACT SPECIFIC VARIABLES ######################################
+
+  ssh_private_key                      = var.admin_disk_ssh_private_key
   amount_of_disks                      = var.admin_disk_amount_of_disks
   disk_size_in_gb                      = var.admin_disk_disk_size_in_gb
   iscsi_disk_instance_compartment_name = var.admin_disk_iscsi_disk_instance_compartment_name
@@ -52,6 +54,7 @@ module "admin_iscsi_disks" {
   linux_compute_id                     = module.admin_compute.instance[count.index].id
   compute_display_name                 = module.admin_compute.instance[count.index].display_name
   availability_domain                  = module.admin_compute.instance[count.index].availability_domain
+  linux_compute_private_ip             = module.admin_compute.instance[count.index].private_ip
 
 }
 
@@ -85,9 +88,9 @@ module "managed_compute" {
 }
 
 module "managed_iscsi_disks" {
-  depends_on = [ module.managed_compute ]
-  source = "git::https://github.com/dralquinta/trainingicscidisk.git?ref=v1.0"
-  count  = length(module.managed_compute.instance.*.id)
+  depends_on = [module.managed_compute]
+  source     = "git::https://github.com/dralquinta/trainingicscidisk.git?ref=DEV_Disk_Mounting"
+  count      = length(module.managed_compute.instance.*.id)
   ######################################## COMMON VARIABLES ######################################
   region           = var.region
   user_ocid        = var.user_ocid
@@ -96,6 +99,7 @@ module "managed_iscsi_disks" {
   private_key_path = var.private_key_path
   ######################################## COMMON VARIABLES ######################################
   ######################################## ARTIFACT SPECIFIC VARIABLES ######################################
+  ssh_private_key                      = var.managed_disk_ssh_private_key
   amount_of_disks                      = var.managed_disk_amount_of_disks
   disk_size_in_gb                      = var.managed_disk_disk_size_in_gb
   iscsi_disk_instance_compartment_name = var.managed_disk_iscsi_disk_instance_compartment_name
@@ -104,5 +108,6 @@ module "managed_iscsi_disks" {
   linux_compute_id                     = module.managed_compute.instance[count.index].id
   compute_display_name                 = module.managed_compute.instance[count.index].display_name
   availability_domain                  = module.managed_compute.instance[count.index].availability_domain
+  linux_compute_private_ip             = module.managed_compute.instance[count.index].private_ip
 
 }

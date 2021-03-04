@@ -122,6 +122,10 @@ variable "admin_is_compute_private" {
 /********** Admin Compute Variables **********/
 
 /********** Admin Disk Variables **********/
+variable "admin_disk_ssh_private_key" {
+  description = "Sets the private Key to use to connect to the instance"
+}
+
 variable "admin_disk_amount_of_disks" {
   description = "Amount of equally sized disks"
 }
@@ -148,6 +152,10 @@ variable "admin_disk_iscsi_disk_instance_compartment_name" {
 
 
 /********** Managed Disk Variables **********/
+variable "managed_disk_ssh_private_key" {
+  description = "Sets the private Key to use to connect to the instance"
+}
+
 variable "managed_disk_amount_of_disks" {
   description = "Amount of equally sized disks"
 }
