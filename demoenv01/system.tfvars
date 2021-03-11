@@ -4,8 +4,8 @@ Purpose: The following script defines the system particular variables to provisi
 Copyright (c) 2017, 2020, Oracle and/or its affiliates. All rights reserved. 
 */
 ##### DOMAIN INTEGRATION VARIABLES #####
-wls_domain_name  = "asistencia247"
-wls_cluster_name = "asistencia247_cluster"
+wls_domain_name  = "training_iac"
+wls_cluster_name = "training_iac_cluster"
 ms_per_machine   = 2
 
 ##### ADMIN COMPUTE MODULE VARIABLES #####

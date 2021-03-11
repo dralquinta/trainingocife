@@ -8,5 +8,5 @@ export ANSIBLE_WORKSPACE='/home/opc/REPOS/OCIBE/trainingansible'
 export TERRAFORM_WORKSPACE='/home/opc/REPOS/OCIFE'
 export PIPELINE='trainingocife'
 export SYSTEM=$1
-export ANSIBLE_BASE_ROLE='base_static_sampleconfig'
+export ANSIBLE_BASE_ROLE='orchestrated'
 export TERRAFORM_ARTIFACT_WORKSPACE=$TERRAFORM_WORKSPACE/$PIPELINE/$SYSTEM
