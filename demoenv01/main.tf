@@ -34,7 +34,7 @@ module "admin_compute" {
 
 module "admin_iscsi_disks" {
   depends_on = [module.admin_compute]
-  source     = "git::https://github.com/dralquinta/trainingicscidisk.git?ref=DEV_Disk_Mounting"
+  source     = "git::https://github.com/dralquinta/trainingicscidisk.git?ref=v1.1"
   count      = length(module.admin_compute.instance.*.id)
   ######################################## COMMON VARIABLES ######################################
   region           = var.region
@@ -89,7 +89,7 @@ module "managed_compute" {
 
 module "managed_iscsi_disks" {
   depends_on = [module.managed_compute]
-  source     = "git::https://github.com/dralquinta/trainingicscidisk.git?ref=DEV_Disk_Mounting"
+  source     = "git::https://github.com/dralquinta/trainingicscidisk.git?ref=v1.1"
   count      = length(module.managed_compute.instance.*.id)
   ######################################## COMMON VARIABLES ######################################
   region           = var.region
